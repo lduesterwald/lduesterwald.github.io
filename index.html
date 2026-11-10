@@ -1,110 +1,452 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Lea Duesterwald is a Cornell University computer science undergraduate researching how language models learn from training data.">
+  <meta name="description"
+    content="Lea Duesterwald is a Cornell University computer science undergraduate researching how language models learn from training data.">
   <title>Lea Duesterwald</title>
+
+  <!-- DM Sans font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root {--ink:#F6F5F4;--muted:#C4C9CF;--link:#8ECDF1;--line:#263344;--soft:#101B2A}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#030B18;color:var(--ink);font:16px/1.65 "IBM Plex Sans","Helvetica Neue",Arial,sans-serif}
-    main{max-width:850px;margin:0 auto;padding:68px 32px 90px}
-    a{color:var(--link);text-underline-offset:3px;text-decoration:underline;text-decoration-color:rgba(142,205,241,.55);text-decoration-thickness:1px}a:hover{text-decoration-color:currentColor}a:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:2px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:30px;margin-bottom:46px}
-    h1{font-size:2.35rem;letter-spacing:-.035em;line-height:1.15;margin:0 0 12px;font-weight:700}
-    .tagline{margin:0 0 14px;color:var(--muted);max-width:520px}
-    nav{display:flex;flex-wrap:wrap;gap:5px 17px;font-size:.95rem}
-    .photo-placeholder,.photo{width:158px;height:158px;flex:0 0 158px;object-fit:cover;border-radius:50%;object-position:center center}
-    .photo-placeholder{background:var(--soft);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#BAC5D0;font-size:.82rem;text-align:center;padding:14px}
-    h2{font-size:1.34rem;letter-spacing:-.025em;margin:39px 0 14px;font-weight:700}
-    p{margin:0 0 13px}
-    .publication{margin:0 0 24px}.paper-title{font-weight:600;line-height:1.42}.authors{font-size:.94rem;margin-top:2px}.venue{color:var(--muted);font-style:italic;font-size:.93rem}.resources{margin-top:2px;font-size:.93rem}.resources a{display:inline-block}.dot{color:#8799AA;margin:0 7px}
-    footer{color:var(--muted);font-size:.83rem;margin-top:49px;padding-top:17px;border-top:1px solid var(--line)}
-    @media(max-width:580px){main{padding:36px 21px 65px}header{gap:16px;align-items:flex-start}h1{font-size:1.9rem}.photo-placeholder,.photo{width:102px;height:102px;flex-basis:102px}body{font-size:15px}nav{gap:3px 12px}}
+    :root {
+      --ink: #F6F5F4;
+      --muted: #C4C9CF;
+      --link: #8ECDF1;
+      --line: #263344;
+      --soft: #101B2A;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #030B18;
+      color: var(--ink);
+      font: 16px/1.65 "DM Sans", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    main {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 68px 32px 90px;
+    }
+
+    a {
+      color: var(--link);
+      text-underline-offset: 3px;
+      text-decoration: underline;
+      text-decoration-color: rgba(142, 205, 241, .55);
+      text-decoration-thickness: 1px;
+    }
+
+    a:hover {
+      text-decoration-color: currentColor;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 46px;
+    }
+
+    h1 {
+      font-size: 2.35rem;
+      letter-spacing: -.035em;
+      line-height: 1.15;
+      margin: 0 0 12px;
+      font-weight: 700;
+    }
+
+    .tagline {
+      margin: 0 0 14px;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 17px;
+      font-size: .95rem;
+    }
+
+    .photo {
+      width: 158px;
+      height: 158px;
+      flex: 0 0 158px;
+      object-fit: cover;
+      border-radius: 50%;
+      object-position: center center;
+    }
+
+    h2 {
+      font-size: 1.34rem;
+      letter-spacing: -.025em;
+      margin: 39px 0 14px;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0 0 13px;
+    }
+
+    .publication {
+      margin: 0 0 24px;
+    }
+
+    .paper-title {
+      font-weight: 600;
+      line-height: 1.42;
+    }
+
+    .authors {
+      font-size: .94rem;
+      margin-top: 2px;
+    }
+
+    .venue {
+      color: var(--muted);
+      font-style: italic;
+      font-size: .93rem;
+    }
+
+    .resources {
+      margin-top: 2px;
+      font-size: .93rem;
+    }
+
+    .resources a {
+      display: inline-block;
+    }
+
+    .dot {
+      color: #8799AA;
+      margin: 0 7px;
+    }
+
+    footer {
+      color: var(--muted);
+      font-size: .83rem;
+      margin-top: 49px;
+      padding-top: 17px;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 580px) {
+      main {
+        padding: 36px 21px 65px;
+      }
+
+      header {
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+      }
+
+      .photo {
+        width: 102px;
+        height: 102px;
+        flex-basis: 102px;
+      }
+
+      body {
+        font-size: 15px;
+      }
+
+      nav {
+        gap: 3px 12px;
+      }
+    }
   </style>
 </head>
+
 <body>
-<main>
-  <header>
-    <div>
-      <h1>Lea Duesterwald</h1>
-      <p class="tagline">Computer Science senior at Cornell University, interested in understanding how language models learn.</p>
-      <nav aria-label="Profile links">
-        <a href="mailto:lkd46@cornell.edu">Email</a>
-        <a href="lea_duesterwald_cv.pdf">CV</a>
-        <!-- TODO: When your Scholar profile is ready, replace the span below with:
-             <a href="https://scholar.google.com/citations?user=YOUR_ID">Google Scholar</a> -->
-        <span style="color:var(--muted)" title="Add your profile link when ready">Google Scholar (soon)</span>
-        <a href="https://github.com/lduesterwald">GitHub</a>
-      </nav>
-    </div>
-    <img class="photo" src="headshot.jpg" alt="Lea Duesterwald">
-  </header>
+  <main>
 
-  <section aria-labelledby="about-title">
-    <h2 id="about-title">About Me</h2>
-    <p>I'm a senior studying Computer Science at Cornell University. My research interests center on understanding how language models learn from their training data, particularly how data properties, prior learning, and training objectives and architectures influence the acquisition and memorization of information.</p>
-    <p>Currently, I work with <a href="https://www.cs.cornell.edu/~cdesa/">Professor Chris De Sa</a> and <a href="https://afedercooper.info/">Professor A. Feder Cooper</a> on memorization in language models. Our work investigates how information learned during training can be extracted from language models, and I'm currently studying memorization in diffusion language models.</p>
-    <p>Previously, I conducted research at Carnegie Mellon University with Professor Norman Sadeh on LLM-based cybersecurity assistants and personalization, and at Microsoft Research on AI agents. I've also worked on numerical claim verification at Cornell and machine learning for genomic analysis at Argonne National Laboratory.</p>
-  </section>
+    <!-- HEADER -->
+    <header>
+      <div>
+        <h1>Lea Duesterwald</h1>
 
-  <section aria-labelledby="publications-title">
-    <h2 id="publications-title">Publications</h2>
-    <article class="publication">
-      <div class="paper-title">Extractable Memorization From First Principles</div>
-      <div class="authors">A. F. Cooper, M. Swanberg, J. Hayes, <strong>L. Duesterwald</strong>, C. De Sa, D. E. Ho, M. A. Lemley, and P. Liang.</div>
-      <div class="venue">Preprint, 2026. Under review at ICLR 2027.</div>
-      <div class="resources"><a href="https://dx.doi.org/10.2139/ssrn.7118018">Paper</a><span class="dot">·</span><a href="https://monkey-emeritus.github.io/">Project page</a>
-        <!-- TODO: Add Cooper's blog post when you have its exact URL. --></div>
-    </article>
-    <article class="publication">
-      <div class="paper-title">Estimating Near-Verbatim Extraction Risk in Language Models with Decoding-Constrained Beam Search</div>
-      <div class="authors">A. F. Cooper, M. A. Lemley, C. De Sa, <strong>L. Duesterwald</strong>, A. Casasola, J. Hayes, K. Lee, D. E. Ho, and P. Liang.</div>
-      <div class="venue">Conference on Language Modeling (COLM), 2026.</div>
-      <div class="resources"><a href="https://doi.org/10.48550/arXiv.2603.24917">Paper</a>
-        <!-- TODO: Add Cooper's blog post when you have its exact URL. --></div>
-    </article>
-    <article class="publication">
-      <div class="paper-title">Evaluating the Impact of Personalization in Conversational Cybersecurity Assistants</div>
-      <div class="authors"><strong>L. Duesterwald</strong>, A. Jain, S. Kochar, and N. Sadeh.</div>
-      <div class="venue">HAIPS Workshop at COLM, 2026.</div>
-      <div class="resources"><a href="https://doi.org/10.48550/arXiv.2609.17839">Paper</a></div>
-    </article>
-    <article class="publication">
-      <div class="paper-title">CornellNLP at CheckThat! 2025: Hybrid Llama–GPT-4 Ensembles with Confidence Filtering for Numerical Claim Verification</div>
-      <div class="authors"><strong>L. Duesterwald</strong>, A. Arora, and C. Cardie.</div>
-      <div class="venue">CLEF Working Notes, 2025.</div>
-      <div class="resources"><a href="https://ceur-ws.org/Vol-4038/paper_68.pdf">Paper</a></div>
-    </article>
-    <article class="publication">
-      <div class="paper-title">Can a Cybersecurity Question Answering Assistant Help Change User Behavior? An In Situ Study</div>
-      <div class="authors"><strong>L. Duesterwald</strong>, I. Yang, and N. Sadeh.</div>
-      <div class="venue">Symposium on Usable Security and Privacy (USEC), 2025.</div>
-      <div class="resources"><a href="https://dx.doi.org/10.14722/usec.2025.23018">Paper</a><span class="dot">·</span><a href="https://youtu.be/AUFyvJMe3Y4?t=3604">Talk</a></div>
-    </article>
-    <article class="publication">
-      <div class="paper-title">Generating Effective Answers to People’s Everyday Cybersecurity Questions: An Initial Study</div>
-      <div class="authors">A. Balaji*, <strong>L. Duesterwald*</strong>, I. Yang*, A. Priyanshu, C. Alfieri, and N. Sadeh. (*Equal contribution.)</div>
-      <div class="venue">Web Information Systems Engineering (WISE), 2024.</div>
-      <div class="resources"><a href="https://doi.org/10.1007/978-981-96-0576-7_27">Paper</a></div>
-    </article>
-    <article class="publication">
-      <div class="paper-title">Using Intrahost Single Nucleotide Variant Data to Predict SARS-CoV-2 Detection Cycle Threshold Values</div>
-      <div class="authors"><strong>L. Duesterwald</strong>, M. Nguyen, P. Christensen, S. W. Long, R. J. Olsen, J. M. Musser, and J. J. Davis.</div>
-      <div class="venue">PLOS ONE, 2024.</div>
-      <div class="resources"><a href="https://doi.org/10.1371/journal.pone.0312686">Paper</a><span class="dot">·</span><a href="https://github.com/lduesterwald/Pileup-Ct-Value-Prediction">Code</a></div>
-    </article>
-    <article class="publication">
-      <div class="paper-title">Using Genome Sequence Data to Predict SARS-CoV-2 Detection Cycle Threshold Values</div>
-      <div class="authors"><strong>L. Duesterwald</strong>, M. Nguyen, P. Christensen, S. W. Long, R. J. Olsen, J. M. Musser, and J. J. Davis.</div>
-      <div class="venue">medRxiv preprint, 2022.</div>
-      <div class="resources"><a href="https://doi.org/10.1101/2022.11.14.22282297">Paper</a><span class="dot">·</span><a href="https://github.com/lduesterwald/Ct-Value-Prediction">Code</a></div>
-    </article>
-  </section>
-  <footer>Last updated November 2026</footer>
-</main>
+        <p class="tagline">
+          Computer Science senior at Cornell University, interested in understanding how language models learn.
+        </p>
+
+        <nav aria-label="Profile links">
+          <a href="mailto:lkd46@cornell.edu">Email</a>
+          <a href="lea_duesterwald_cv.pdf">CV</a>
+          <a href="https://scholar.google.com/citations?user=i0LFUqsAAAAJ">Google Scholar</a>
+          <a href="https://github.com/lduesterwald">GitHub</a>
+        </nav>
+      </div>
+
+      <img class="photo" src="headshot.jpg" alt="Lea Duesterwald">
+    </header>
+
+
+    <!-- ABOUT ME -->
+    <section aria-labelledby="about-title">
+      <h2 id="about-title">About Me</h2>
+
+      <p>
+        I'm a senior studying Computer Science at Cornell University.
+        My research interests center on understanding how language models
+        learn from their training data, particularly how data properties,
+        prior learning, and training objectives and architectures influence
+        the acquisition and memorization of information.
+      </p>
+
+      <p>
+        Currently, I work with
+        <a href="https://www.cs.cornell.edu/~cdesa/">Professor Chris De Sa</a>
+        and
+        <a href="https://afedercooper.info/">Professor A. Feder Cooper</a>
+        on memorization in language models. Our work investigates how
+        information learned during training can be extracted from language
+        models, and I'm currently studying memorization in diffusion
+        language models.
+      </p>
+
+      <p>
+        Previously, I conducted research at Carnegie Mellon University
+        with Professor Norman Sadeh on LLM-based cybersecurity assistants
+        and personalization, and at Microsoft Research on AI agents.
+        I've also worked on numerical claim verification at Cornell and
+        machine learning for genomic analysis at Argonne National Laboratory.
+      </p>
+    </section>
+
+
+    <!-- PUBLICATIONS -->
+    <section aria-labelledby="publications-title">
+      <h2 id="publications-title">Publications</h2>
+
+      <!-- Paper 1 -->
+      <article class="publication">
+        <div class="paper-title">
+          Extractable Memorization From First Principles
+        </div>
+
+        <div class="authors">
+          A. F. Cooper, M. Swanberg, J. Hayes,
+          <strong>L. Duesterwald</strong>,
+          C. De Sa, D. E. Ho, M. A. Lemley, and P. Liang.
+        </div>
+
+        <div class="venue">
+          Preprint, 2026. Under review at ICLR 2027.
+        </div>
+
+        <div class="resources">
+          <a href="https://dx.doi.org/10.2139/ssrn.7118018">Paper</a>
+          <span class="dot">·</span>
+          <a href="https://monkey-emeritus.github.io/">Project page</a>
+        </div>
+      </article>
+
+
+      <!-- Paper 2 -->
+      <article class="publication">
+        <div class="paper-title">
+          Estimating Near-Verbatim Extraction Risk in Language Models
+          with Decoding-Constrained Beam Search
+        </div>
+
+        <div class="authors">
+          A. F. Cooper, M. A. Lemley, C. De Sa,
+          <strong>L. Duesterwald</strong>,
+          A. Casasola, J. Hayes, K. Lee, D. E. Ho, and P. Liang.
+        </div>
+
+        <div class="venue">
+          Conference on Language Modeling (COLM), 2026.
+        </div>
+
+        <div class="resources">
+          <a href="https://doi.org/10.48550/arXiv.2603.24917">Paper</a>
+          <span class="dot">·</span>
+          <a href="https://afedercooper.info/near-verbatim/">
+            Interactive Explanation
+          </a>
+        </div>
+      </article>
+
+
+      <!-- Paper 3 -->
+      <article class="publication">
+        <div class="paper-title">
+          Evaluating the Impact of Personalization in
+          Conversational Cybersecurity Assistants
+        </div>
+
+        <div class="authors">
+          <strong>L. Duesterwald</strong>,
+          A. Jain, S. Kochar, and N. Sadeh.
+        </div>
+
+        <div class="venue">
+          HAIPS Workshop at COLM, 2026.
+        </div>
+
+        <div class="resources">
+          <a href="https://doi.org/10.48550/arXiv.2609.17839">Paper</a>
+        </div>
+      </article>
+
+
+      <!-- Paper 4 -->
+      <article class="publication">
+        <div class="paper-title">
+          CornellNLP at CheckThat! 2025: Hybrid Llama–GPT-4 Ensembles
+          with Confidence Filtering for Numerical Claim Verification
+        </div>
+
+        <div class="authors">
+          <strong>L. Duesterwald</strong>,
+          A. Arora, and C. Cardie.
+        </div>
+
+        <div class="venue">
+          CLEF Working Notes, 2025.
+        </div>
+
+        <div class="resources">
+          <a href="https://ceur-ws.org/Vol-4038/paper_68.pdf">Paper</a>
+        </div>
+      </article>
+
+
+      <!-- Paper 5 -->
+      <article class="publication">
+        <div class="paper-title">
+          Can a Cybersecurity Question Answering Assistant Help Change
+          User Behavior? An In Situ Study
+        </div>
+
+        <div class="authors">
+          <strong>L. Duesterwald</strong>,
+          I. Yang, and N. Sadeh.
+        </div>
+
+        <div class="venue">
+          Symposium on Usable Security and Privacy (USEC), 2025.
+        </div>
+
+        <div class="resources">
+          <a href="https://dx.doi.org/10.14722/usec.2025.23018">Paper</a>
+          <span class="dot">·</span>
+          <a href="https://youtu.be/AUFyvJMe3Y4?t=3604">Talk</a>
+        </div>
+      </article>
+
+
+      <!-- Paper 6 -->
+      <article class="publication">
+        <div class="paper-title">
+          Generating Effective Answers to People’s Everyday
+          Cybersecurity Questions: An Initial Study
+        </div>
+
+        <div class="authors">
+          A. Balaji*,
+          <strong>L. Duesterwald*</strong>,
+          I. Yang*, A. Priyanshu, C. Alfieri, and N. Sadeh.
+          (*Equal contribution.)
+        </div>
+
+        <div class="venue">
+          Web Information Systems Engineering (WISE), 2024.
+        </div>
+
+        <div class="resources">
+          <a href="https://doi.org/10.1007/978-981-96-0576-7_27">Paper</a>
+        </div>
+      </article>
+
+
+      <!-- Paper 7 -->
+      <article class="publication">
+        <div class="paper-title">
+          Using Intrahost Single Nucleotide Variant Data to Predict
+          SARS-CoV-2 Detection Cycle Threshold Values
+        </div>
+
+        <div class="authors">
+          <strong>L. Duesterwald</strong>,
+          M. Nguyen, P. Christensen, S. W. Long, R. J. Olsen,
+          J. M. Musser, and J. J. Davis.
+        </div>
+
+        <div class="venue">
+          PLOS ONE, 2024.
+        </div>
+
+        <div class="resources">
+          <a href="https://doi.org/10.1371/journal.pone.0312686">Paper</a>
+          <span class="dot">·</span>
+          <a href="https://github.com/lduesterwald/Pileup-Ct-Value-Prediction">
+            Code
+          </a>
+        </div>
+      </article>
+
+
+      <!-- Paper 8 -->
+      <article class="publication">
+        <div class="paper-title">
+          Using Genome Sequence Data to Predict SARS-CoV-2
+          Detection Cycle Threshold Values
+        </div>
+
+        <div class="authors">
+          <strong>L. Duesterwald</strong>,
+          M. Nguyen, P. Christensen, S. W. Long, R. J. Olsen,
+          J. M. Musser, and J. J. Davis.
+        </div>
+
+        <div class="venue">
+          medRxiv preprint, 2022.
+        </div>
+
+        <div class="resources">
+          <a href="https://doi.org/10.1101/2022.11.14.22282297">Paper</a>
+          <span class="dot">·</span>
+          <a href="https://github.com/lduesterwald/Ct-Value-Prediction">
+            Code
+          </a>
+        </div>
+      </article>
+
+    </section>
+
+    <footer>
+      Last updated November 2026
+    </footer>
+
+  </main>
 </body>
+
 </html>
